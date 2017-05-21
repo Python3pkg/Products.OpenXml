@@ -7,7 +7,7 @@ import mimetypes
 import openxmllib
 from openxmllib import contenttypes as ct
 from Products.PortalTransforms.interfaces import itransform
-from config import SITE_CHARSET, TRANSFORM_NAME
+from .config import SITE_CHARSET, TRANSFORM_NAME
 from Products.OpenXml import logger
 
 try:
@@ -73,7 +73,7 @@ class openxml_to_text:
         try:
             doc = openxmllib.openXmlDocument(data=orig, mime_type=mimetype)
             data.setData(doc.indexableText().encode(SITE_CHARSET, 'replace'))
-        except ValueError, e:
+        except ValueError as e:
             # Crappy data provided to the transform.
             logger.error("Crappy file provided, returning empty text", exc_info=True)
             data.setData('')

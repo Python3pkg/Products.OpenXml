@@ -2,11 +2,11 @@
 # $Id$
 """Testing portal_transforms settings"""
 import os
-import StringIO
+import io
 from Products.CMFCore.utils import getToolByName
 from Products.PloneTestCase import PloneTestCase
 from Products.OpenXml.config import TRANSFORM_NAME
-import common
+from . import common
 
 class PTTestCase(PloneTestCase.PloneTestCase):
 
@@ -28,7 +28,7 @@ class PTTestCase(PloneTestCase.PloneTestCase):
         """Do we index the text of an openxml office file"""
 
         self.loginAsPortalOwner()
-        class fakefile(StringIO.StringIO):
+        class fakefile(io.StringIO):
             pass
         this_dir = os.path.dirname(os.path.abspath(__file__))
         test_filename = os.path.join(this_dir, 'wordprocessing1.docx')

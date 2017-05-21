@@ -3,7 +3,7 @@
 """Setup handlers for OpenXml"""
 
 from Products.CMFCore.utils import getToolByName
-import config
+from . import config
 from Products.OpenXml import logger
 
 

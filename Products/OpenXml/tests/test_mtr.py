@@ -5,7 +5,7 @@ from Products.CMFCore.utils import getToolByName
 from Products.MimetypesRegistry.interfaces import IMimetype
 from Products.PloneTestCase import PloneTestCase
 from Products.OpenXml.config import office_mimetypes
-import common
+from . import common
 
 class MTRTestCase(PloneTestCase.PloneTestCase):
 
